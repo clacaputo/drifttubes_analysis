@@ -71,7 +71,7 @@ int main(int argc, char * argv[]) {
 
 
    const char *filename = argv[1];
-   const unsigned int n_batch = atoi(argv[2]);
+   //const unsigned int n_batch = atoi(argv[2]);
 
    unsigned int scaler;
    unsigned short voltage[1024];
@@ -91,7 +91,9 @@ int main(int argc, char * argv[]) {
       return -1;
    }
        //open the root file
-   strcpy(rootfile, Form("%s_batch%d", filename, n_batch));
+   //strcpy(rootfile, Form("%s_batch%d", filename, n_batch));
+   strcpy(rootfile, Form("%s", filename));
+
    if (strchr(rootfile, '.'))
       *strchr(rootfile, '.') = 0;
    strcat(rootfile, ".root");
@@ -151,10 +153,10 @@ int main(int argc, char * argv[]) {
          fread(&bin_width[b][i][0], sizeof(float), 1024, f);
       }
    }
-   n_boards = b;
+   n_boards = 1;b;
    
    // loop over all events in data file
-   for (n = 0; n<100; n++) {
+   for (n = 0; ; n++) {
    
       // read event header
       i = fread(&eh, sizeof(eh), 1, f);
@@ -272,10 +274,10 @@ int main(int argc, char * argv[]) {
          
          }
 
-         if( n_batch !=0 ){
-            if(eh.event_serial_number  < (1000 * (n_batch-1) ) ) continue;
-            else if (eh.event_serial_number >= (1000 * n_batch)) break;
-         }
+         //if( n_batch !=0 ){
+         //   if(eh.event_serial_number  < (1000 * (n_batch-1) ) ) continue;
+         //   else if (eh.event_serial_number >= (1000 * n_batch)) break;
+         //}
 
            
       rec->Write(); 
