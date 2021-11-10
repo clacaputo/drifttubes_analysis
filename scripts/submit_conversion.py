@@ -15,14 +15,18 @@ class bcolors:
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--ymls", type=str, nargs='*', required=True, help="yml files" )
-#parser.add_argument("--voltage", action='store_true', help='Submit skimming only for background samples')
+parser.add_argument("--pkl", action='store_true', help='Submit skimming only for background samples', default=False)
 parser.add_argument("--skipSignals", action='store_true', help='Submit skimming skipping signals samples')
-parser.add_argument("--voltage", type=str, required=True, choices=["m20","nominal","p10","p20","all"], nargs='*',
-                                help="Group of voltage configuration [m20, nominal, p10, p20, all]" )
+parser.add_argument("--voltage", type=str, required=True, choices=["m20","m10","nominal","p10","p20","all"], nargs='*',
+                                help="Group of voltage configuration [m20, m10, nominal, p10, p20, all]" )
 
 args = parser.parse_args()
 ymls = args.ymls
 voltage = args.voltage
+pkl = args.pkl
+
+if voltage.count("all"):
+    voltage = ["m20", "m10", "nominal","p10","p20"]
 
 def createFolder(path):
     if os.path.isdir(path) == False:
@@ -74,7 +78,6 @@ FOLDER=\"{folder}\"
 
 {command}
 
-mv *.root $FOLDER/{output}
 """
 
 for yml in ymls:
@@ -109,6 +112,7 @@ for yml in ymls:
             #print(measure["voltage"])
             V = measure["voltage"]
             scan = measure["angle_scan"]
+            print(V)
             if len(voltage) > 0 :
                 if not voltage.count(V):
                     continue
@@ -117,11 +121,15 @@ for yml in ymls:
 
                 ang_file = scan[angle]
                 filename = ang_file['file_bin']
+                if pkl:
+                    filename = ang_file['file_root']
 
                 shell_filename = generic_bash_script_name.format(folder=angle, volt=V)
                 shell_script   = open("{folder}/{sh}".format(folder=inputs_folder,sh=shell_filename), "w")
 
                 command = "$FOLDER/decode.exe {file}".format(file=filename)
+                if pkl:
+                    command = "python $FOLDER/pkl_conversion.py --input {file}".format(file=filename)
                 #print(command)
                 script = bash_script_tmp.format(folder=pwd,
                                                 source_command=sourcecmd,

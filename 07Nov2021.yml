@@ -1,0 +1,93 @@
+GasMixture: 90.10
+MuonEnergy: 165 #GeV
+GSPS: 1.2
+delay: 725 #ns
+NumberEvents: 5000
+Measurements:
+  Voltage_m20:
+    voltage: "m20"
+    angle_scan:
+      angle_0:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus20V_angle0_GSPS1p2_delay725ns_7Nov_0713"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus20V_angle0_GSPS1p2_delay725ns_7Nov_0713.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus20V_angle0_GSPS1p2_delay725ns_7Nov_0713.pkl"
+      angle_45:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus20V_angle45_GSPS1p2_delay725ns_7Nov_0651"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus20V_angle45_GSPS1p2_delay725ns_7Nov_0651.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus20V_angle45_GSPS1p2_delay725ns_7Nov_0651.pkl"
+  Voltage_m10:
+    voltage: "m10"
+    angle_scan:
+      angle_0:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus10V_angle0_GSPS1p2_delay725ns_7Nov_0735"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus10V_angle0_GSPS1p2_delay725ns_7Nov_0735.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus10V_angle0_GSPS1p2_delay725ns_7Nov_0735.pkl"
+      angle_45:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus10V_angle45_GSPS1p2_delay725ns_7Nov_0625"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus10V_angle45_GSPS1p2_delay725ns_7Nov_0625.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltageMinus10V_angle45_GSPS1p2_delay725ns_7Nov_0625.pkl"
+  Voltage_nominal:
+    voltage: "nominal"
+    angle_scan:
+      angle_0_v1:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_7Nov_0817"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_7Nov_0817.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_7Nov_0817.pkl"
+      angle_0_v2:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay1000_7Nov_0905"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay1000_7Nov_0905.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay1000_7Nov_0905.pkl"
+      angle_0_v3:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0321"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0321.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0321.pkl"
+      angle_0_v4:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0848"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0848.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0848.pkl"
+      angle_0_v5:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0909"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0909.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0909.pkl"
+      angle_0_v6:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0928"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0928.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle0_GSPS1p2_delay725ns_7Nov_0928.pkl"
+      angle_15:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle15_GSPS1p2_delay725ns_7Nov_0354"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle15_GSPS1p2_delay725ns_7Nov_0354.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle15_GSPS1p2_delay725ns_7Nov_0354.pkl"
+      angle_30:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle30_GSPS1p2_delay725ns_7Nov_0423"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle30_GSPS1p2_delay725ns_7Nov_0423.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle30_GSPS1p2_delay725ns_7Nov_0423.pkl"
+      angle_45:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle45_GSPS1p2_delay725ns_7Nov_0423"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle45_GSPS1p2_delay725ns_7Nov_0423.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle45_GSPS1p2_delay725ns_7Nov_0423.pkl"
+      angle_60:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle60_GSPS1p2_delay725ns_7Nov_0511"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle60_GSPS1p2_delay725ns_7Nov_0511.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_angle60_GSPS1p2_delay725ns_7Nov_0511.pkl"
+  Voltage_p10:
+    voltage: "p10"
+    angle_scan:
+      angle_0:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus10V_angle0_GSPS1p2_delay725ns_7Nov_0758"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus10V_angle0_GSPS1p2_delay725ns_7Nov_0758.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus10V_angle0_GSPS1p2_delay725ns_7Nov_0758.pkl"
+      angle_45:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus10V_angle45_GSPS1p2_delay725ns_7Nov_0539"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus10V_angle45_GSPS1p2_delay725ns_7Nov_0539.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus10V_angle45_GSPS1p2_delay725ns_7Nov_0539.pkl"
+  Voltage_p20:
+    voltage: "p20"
+    angle_scan:  
+      angle_0:
+       file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus20V_angle0_GSPS1p2_delay725ns_7Nov_0824"
+       file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus20V_angle0_GSPS1p2_delay725ns_7Nov_0824.root"
+       file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus20V_angle0_GSPS1p2_delay725ns_7Nov_0824.pkl"
+      angle_45:
+       file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus20V_angle45_GSPS1p2_delay725ns_7Nov_0602"
+       file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus20V_angle45_GSPS1p2_delay725ns_7Nov_0602.root"
+       file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/7Nov2021/muons_165GeV_voltagePlus20V_angle45_GSPS1p2_delay725ns_7Nov_0602.pkl"
