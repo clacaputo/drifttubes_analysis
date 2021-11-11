@@ -12,8 +12,11 @@ args = parser.parse_args()
 input = args.input
 
 df_w = pd.read_pickle(input)
-## Invert signal polarity
-df_w = -(df_w)
+## Invert signal polarity and add offset
+offset = 0 
+if df_w.ch0[0][1] > 0.4:
+    offset = 0.45
+df_w = -(df_w) + offset
 
 
 chs_1cm = ["ch4", "ch5", "ch6", "ch7", "ch8", "ch9"]
@@ -21,10 +24,11 @@ chs_3cm = ["ch13", "ch14"]
 chs_2cm = ["ch10", "ch11", "ch12"]
 chs_all = chs_1cm + chs_2cm + chs_3cm
 
+print(f"Opening: {input}")
 ## Adding signal features
 for ch in df_w.columns:
     if chs_all.count(ch):
-        print(ch)
+        #print(ch)
         df_w[f"{ch}_ampl"] = df_w[ch].map(lambda x: np.array(x).max())
         df_w[f"{ch}_int"] = df_w[ch].map(lambda x: np.array(x).sum())
         #df_w[f"{ch}_baseline"] = df_w[ch].map(lambda x: x.sum()*0.01)
@@ -44,6 +48,14 @@ def landau(x, A, B, C):
 fig = plt.figure(figsize=(18,12))
 axs = fig.subplots(3,4)
 
+if os.path.isfile("fitparamfile.txt") == False:
+    fitparamfile = open("fitparamfile.txt","w")
+else:
+    fitparamfile = open("fitparamfile.txt","a")
+
+fitparamfile.write(f"input: {input}\n")
+
+print(f"Fitting Landau for: {input}")
 for num, ch in enumerate(chs_all):
     Row = int(num / 4)
     Column = num % 4
@@ -55,7 +67,7 @@ for num, ch in enumerate(chs_all):
     loc = 0.058
     scale = 7e-3
     # Plot histogram
-    yval, xval, p = ax.hist(df_series_max[mask_baseline], bins=np.linspace(0,0.35,30), histtype="step", label="Channel 7 Max distribution")
+    yval, xval, p = ax.hist(df_series_max[mask_baseline], bins=np.linspace(0,0.35,30), histtype="step", label=f"{ch} max distribution")
     ax.plot(xval[:-1]+(xval[1]/2),yval, '.')
     #plt.plot(np.linspace(0,0.35,50), landau(np.linspace(0,0.35,50), alpha, loc, scale),'r-')
 
@@ -63,11 +75,19 @@ for num, ch in enumerate(chs_all):
     popt, popc = optimizer.curve_fit(landau,  xval[:-1]+(xval[1]/2), yval, p0=[alpha, loc, scale])
     # Plot Landau
     ax.plot(np.linspace(0,0.35,100), landau(np.linspace(0,0.35,100), *popt), 'r-',
-             label='fit: A=%2.5f, B=%2.5f, C=%2.5f' % tuple(popt))
+             label='fit: A=%2.5f,\nB=%2.5f,\nC=%2.5f' % tuple(popt))
     ax.set_xlabel('Amplitude [V]')
     ax.set_ylabel('Entries')
     ax.legend()
-    print(f"{ch} - media {df_series_max[mask_baseline].mean()}")
-    print('fit: A=%2.5f, B=%2.5f, C=%2.5f' % tuple(popt))
+    fitparamfile.write(f"{ch} - media {df_series_max[mask_baseline].mean()}\n")
+    fitparamfile.write('fit: A=%2.5f, B=%2.5f, C=%2.5f \n' % tuple(popt))
     ax.set_xlim(0,0.35)
-fig.savefig("landau.png")
+
+outputname = input.split(".")[0]
+figtitle   = outputname.split("/")[-1]
+fig.suptitle(figtitle)
+fig.savefig(f"{outputname}_LANDAU.png")
+fitparamfile.close()
+
+print(f"Image saved: {outputname}_LANDAU.png")
+print("DONE!")
