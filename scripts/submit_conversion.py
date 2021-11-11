@@ -48,7 +48,7 @@ hostname    = os.uname()[1]
 if "lxplus" in hostname:
     batchsystem = "condor"
     submit_file_name = "submit_skimming.cmd"
-    sourcecmd   = "source /cvmfs/sft.cern.ch/lcg/views/LCG_97python3/x86_64-centos7-gcc8-opt/setup.sh"
+    sourcecmd   = "source /cvmfs/sft.cern.ch/lcg/views/LCG_98python3/x86_64-centos7-gcc10-opt/setup.sh"
 if "iihe" in hostname:
     batchsystem = "qsub"
     submit_file_name = "submit_skimming.sh"
