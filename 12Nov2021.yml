@@ -1,0 +1,59 @@
+GasMixture: 80.20
+MuonEnergy: 165 #GeV
+GSPS: 1.2
+delay: 725 #ns
+NumberEvents: 5000
+Measurements:
+  Voltage_nominal:
+    voltage: "nominal"
+    angle_scan:
+      angle_0:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0.pkl"
+      angle_45:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0.pkl"
+      angle_60:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0.pkl"
+  Voltage_p10:
+    voltage: "p10"
+    angle_scan:
+      angle_0:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0_plus10"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0_plus10.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0_plus10.pkl"
+      angle_30:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle30_HV0_plus10"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle30_HV0_plus10.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle30_HV0_plus10.pkl"
+      angle_45:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0_plus10-2"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0_plus10-2.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0_plus10-2.pkl"
+      angle_60:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0_plus10"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0_plus10.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0_plus10.pkl"
+  Voltage_p20:
+    voltage: "p20"
+    angle_scan:
+      angle_0:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0_plus20"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0_plus20.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle0_HV0_plus20.pkl"
+      angle_30:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle30_HV0_plus20"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle30_HV0_plus20.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle30_HV0_plus20.pkl"
+      angle_45:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0_plus20"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0_plus20.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle45_HV0_plus20.pkl"
+      angle_60:
+        file_bin: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0_plus20"
+        file_root: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0_plus20.root"
+        file_pkl: "/eos/user/c/ccaputo/TestBeam_ClusterCounting/12Nov/Gas80_20_Angle60_HV0_plus20.pkl"

@@ -40,7 +40,7 @@ outputs_folder = "FARM/outputs"
 
 batchsystem = ""
 submit_file_name = "skimming.sub"
-generic_bash_script_name = "bash_script_Voltage-{volt}_{folder}.sh"
+generic_bash_script_name = "bash_script_{date}_Voltage-{volt}_{folder}.sh"
 
 sourcecmd   = ""
 hostname    = os.uname()[1]
@@ -85,6 +85,8 @@ for yml in ymls:
 
         pwd = os.getcwd()
 
+        yml_name = yml.split(".")[0]
+
         createFolder(inputs_folder)
         createFolder(logs_folder)
         createFolder(outputs_folder)
@@ -103,7 +105,7 @@ for yml in ymls:
         if batchsystem == "condor":
             submit_file.write(condor_cfg.format(logsfolder=logs_folder,
                                                 inputsfolder=inputs_folder,
-                                                script_wildcard=generic_bash_script_name.format(folder="*", volt="*")))
+                                                script_wildcard=generic_bash_script_name.format(date="*", folder="*", volt="*")))
 
 
         for m in Measurements:
@@ -123,8 +125,9 @@ for yml in ymls:
                 filename = ang_file['file_bin']
                 if pkl:
                     filename = ang_file['file_root']
+                    yml_name = yml_name+"PKL"
 
-                shell_filename = generic_bash_script_name.format(folder=angle, volt=V)
+                shell_filename = generic_bash_script_name.format(date=yml_name, folder=angle, volt=V)
                 shell_script   = open("{folder}/{sh}".format(folder=inputs_folder,sh=shell_filename), "w")
 
                 command = "$FOLDER/decode.exe {file}".format(file=filename)
