@@ -4,7 +4,7 @@
  
  - Crate a file test.dat via the "Save" button in the browser connected
  to the wds server
- - compile: g++ -std=c++17 -I`root-config --incdir` -L`root-config --libdir` `root-config --libs` `root-config --cflags` read_binary_comp.C -o decode
+ - compile: g++ -std=c++17 -I`root-config --incdir` -L`root-config --libdir` `root-config --libs` `root-config --cflags` read_binary_comp.C -o decode.exe
  - use: ./decode 4Nov2021_Run1_Cosmics_10K/testBeam_cosmics_2 4
  
  */

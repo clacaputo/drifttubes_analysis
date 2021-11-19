@@ -28,6 +28,12 @@ pkl = args.pkl
 if voltage.count("all"):
     voltage = ["m20", "m10", "nominal","p10","p20"]
 
+if not pkl:
+    if not os.path.isfile("decode.exe"):
+        print(bcolors.WARNING+"[ERROR]"+bcolors.ENDC+" decode.exe file is missing. Please compile it")
+        print("Compile:"+bcolors.OKGREEN+"g++ -std=c++17 -I`root-config --incdir` -L`root-config --libdir` `root-config --libs` `root-config --cflags` read_binary_comp.C -o decode.exe"+bcolors.ENDC)
+        exit(-1)
+
 def createFolder(path):
     if os.path.isdir(path) == False:
         os.system('mkdir -p ' + path)
@@ -85,7 +91,9 @@ for yml in ymls:
 
         pwd = os.getcwd()
 
-        yml_name = yml.split(".")[0]
+        yml_name = yml.split('/')[1].split(".")[0]
+        if pkl:
+            yml_name = yml_name+"PKL"
 
         createFolder(inputs_folder)
         createFolder(logs_folder)
@@ -125,7 +133,6 @@ for yml in ymls:
                 filename = ang_file['file_bin']
                 if pkl:
                     filename = ang_file['file_root']
-                    yml_name = yml_name+"PKL"
 
                 shell_filename = generic_bash_script_name.format(date=yml_name, folder=angle, volt=V)
                 shell_script   = open("{folder}/{sh}".format(folder=inputs_folder,sh=shell_filename), "w")
