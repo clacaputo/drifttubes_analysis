@@ -16,7 +16,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--ymls", type=str, nargs='*', required=True, help="yml files" )
 parser.add_argument("--pkl", action='store_true', help='Submit skimming only for background samples', default=False)
-parser.add_argument("--skipSignals", action='store_true', help='Submit skimming skipping signals samples')
+parser.add_argument("--angle", action='store_true', help='Angle cofniguration to be processed')
 parser.add_argument("--voltage", type=str, required=True, choices=["m20","m10","nominal","p10","p20","all"], nargs='*',
                                 help="Group of voltage configuration [m20, m10, nominal, p10, p20, all]" )
 
@@ -100,6 +100,7 @@ for yml in ymls:
         createFolder(outputs_folder)
 
         config = yaml.load(f, Loader=yaml.FullLoader)
+        inputsMainPath = config['main_path']
         Measurements = config['Measurements']
 
         # print("{folder}/skimming_submit.sh".format(folder=inputs_folder))
@@ -130,9 +131,9 @@ for yml in ymls:
             for angle in scan.keys():
 
                 ang_file = scan[angle]
-                filename = ang_file['file_bin']
+                filename = os.path.join(inputsMainPath, ang_file['file_bin'])
                 if pkl:
-                    filename = ang_file['file_root']
+                    filename = os.path.join(inputsMainPath, ang_file['file_root'])
 
                 shell_filename = generic_bash_script_name.format(date=yml_name, folder=angle, volt=V)
                 shell_script   = open("{folder}/{sh}".format(folder=inputs_folder,sh=shell_filename), "w")
