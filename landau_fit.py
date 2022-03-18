@@ -3,13 +3,16 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import json
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("--input", type=str, required=True, help="root files" )
+parser.add_argument("--input", type=str, required=True, help="pkl files" )
 
 args = parser.parse_args()
 input = args.input
+absPath, pklFileName = os.path.split(input)
+jsonFileName = pklFileName.split('.')[0]+".json"
 
 df_w = pd.read_pickle(input)
 ## Invert signal polarity and add offset
@@ -48,19 +51,17 @@ def landau(x, A, B, C):
 fig = plt.figure(figsize=(18,12))
 axs = fig.subplots(3,4)
 
-if os.path.isfile("fitparamfile.txt") == False:
-    fitparamfile = open("fitparamfile.txt","w")
-else:
-    fitparamfile = open("fitparamfile.txt","a")
+fits_dict = {}
 
-fitparamfile.write(f"input: {input}\n")
+fitparamfile = open(os.path.join(absPath, jsonFileName),"w")
 
 print(f"Fitting Landau for: {input}")
 for num, ch in enumerate(chs_all):
     Row = int(num / 4)
     Column = num % 4
     ax = axs[Row][Column]
-    
+    singleFit_dict = {}
+
     mask_baseline = df_w[ch].map(lambda x: np.array(x[1:-1]).max()) > 0.03
     df_series_max = df_w[ch].map(lambda x: np.array(x[1:-1]).max())
     alpha = 4
@@ -79,15 +80,21 @@ for num, ch in enumerate(chs_all):
     ax.set_xlabel('Amplitude [V]')
     ax.set_ylabel('Entries')
     ax.legend()
-    fitparamfile.write(f"{ch} - media {df_series_max[mask_baseline].mean()}\n")
-    fitparamfile.write('fit: A=%2.5f, B=%2.5f, C=%2.5f \n' % tuple(popt))
+    singleFit_dict["mean"] = df_series_max[mask_baseline].mean()
+    singleFit_dict["A"] = popt[0]
+    singleFit_dict["B"] = popt[1]
+    singleFit_dict["C"] = popt[2]
+    #fitparamfile.write(f"{ch} - media {df_series_max[mask_baseline].mean()}\n")
+    #fitparamfile.write('fit: A=%2.5f, B=%2.5f, C=%2.5f \n' % tuple(popt))
     ax.set_xlim(0,0.35)
+    fits_dict[ch] = singleFit_dict
 
 outputname = input.split(".")[0]
 figtitle   = outputname.split("/")[-1]
 fig.suptitle(figtitle)
 fig.savefig(f"{outputname}_LANDAU.png")
-fitparamfile.close()
+#fitparamfile.close()
+json.dump(fits_dict, fitparamfile, indent=6)
 
 print(f"Image saved: {outputname}_LANDAU.png")
 print("DONE!")
